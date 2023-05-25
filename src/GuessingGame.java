@@ -11,12 +11,11 @@ public class GuessingGame {
 
     public GuessingGame() {
         this.input = new Scanner(System.in);
-        System.out.println("Bem-vindo ao jogo de adivinhação!");
+        System.out.println("Bem-vindo ao jogo de adivinhação! \n");
         generateRandomNum();
         this.attempts = 10;
-        System.out.println("");
         System.out.println("Tente adivinhar um número entre 1 e 100");
-        System.out.println("Você tem 10 tentativas.");
+        System.out.println("Você tem 10 tentativas. \n");
     }
 
     private void generateRandomNum() {
@@ -27,12 +26,12 @@ public class GuessingGame {
 
     private void checkResult(int number) {
         if (number < this.number) {
-            this.result = String.format("O número é maior do que %d", number);
+            this.result = String.format("O número é maior do que %d \n", number);
         } else if (number > this.number) {
-            this.result = String.format("O número é menor do que %d", number);
+            this.result = String.format("O número é menor do que %d \n", number);
         } else {
             this.isEnd = true;
-            this.result = String.format("Parabéns! Você acertou o número em %d tentativas.", (10 - this.attempts));
+            this.result = String.format("Parabéns! Você acertou o número em %d tentativas. \n", (10 - this.attempts));
         }
     }
 
@@ -47,7 +46,7 @@ public class GuessingGame {
 
     public void getResult() {
         try {
-            System.out.println("Digite seu palpite:");
+            System.out.print("Digite seu palpite:");
             int number = this.input.nextInt();
             checkResult(number);
             checkAttempts();
@@ -58,7 +57,7 @@ public class GuessingGame {
                 this.input.close();
             }
         } catch (Exception e) {
-            System.out.println("Digite um número");
+            System.out.println("Digite um número!");
         }
     }
 }
