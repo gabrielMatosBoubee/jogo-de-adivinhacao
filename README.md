@@ -17,3 +17,15 @@ Meanwhile, the compiled output files will be generated in the `bin` folder by de
 
 The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
 # jogo-de-adivinhacao
+
+Ao executar o jogo vai sortear um número de 1 a 100 e você terá que adivinhar o número sorteado.
+
+Você terá 10 tentativas e caso você esgote elas o jogo irá encerrar e vai receber a seguinte mensagem "O número de tentativas acabaram".
+
+Em caso de digitar algo que não seja um número inteiro você vai receber a seguinte mensagem de erro "Digite um número!" e o jogo vai se encerrar!
+
+Em caso de digitar um número menor que o número sorteado, você receberá a seguinte mensagem "O número é menor do que 'numero digitado'".
+
+Em caso de digitar um número maior que o número sorteado, você receberá a seguinte mensagem "O número é maior do que 'numero digitado'".
+
+Por ultimo você caso você acerte o número vai receber a seguinte mensagem "Parabéns! Você acertou o número em 'X' tentativas."
