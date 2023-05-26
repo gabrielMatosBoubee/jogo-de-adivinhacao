@@ -22,6 +22,8 @@ The `JAVA PROJECTS` view allows you to manage your dependencies. More details ca
 
 Ao executar o jogo vai sortear um número de 1 a 100 e você terá que adivinhar o número sorteado.
 
+Você pode escolher em 3 dificuldades diferentes. A primeira você terá 15 tentativas, na segunda 10 tentativas e na ultima 5 tentativas.
+
 Você terá 10 tentativas e caso você esgote elas o jogo irá encerrar e vai receber a seguinte mensagem "O número de tentativas acabaram! o resultado era 'X'".
 
 Em caso de digitar algo que não seja um número inteiro você vai receber a seguinte mensagem de erro "Digite um número!" e o jogo vai se encerrar!
