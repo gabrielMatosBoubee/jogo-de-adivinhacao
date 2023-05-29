@@ -13,11 +13,13 @@ public class GuessingGame {
     private final String VERMELHO = "\u001B[31m";
     private final String VERDE = "\u001B[32m";
 
+    /**
+     * You will start the game when you instantiate this class.
+     */
     public GuessingGame() {
         this.input = new Scanner(System.in);
-        System.out.println(VERDE + "Bem-vindo ao jogo de adivinhação! \n");
         generateRandomNum();
-        this.attempts = 10;
+        System.out.println(VERDE + "Bem-vindo ao jogo de adivinhação! \n");
         String text = colorTextRed("1");
         String anotherText = colorTextRed("100");
         System.out.println(String.format("Tente adivinhar um número entre %s %s %s \n", text,
@@ -31,7 +33,7 @@ public class GuessingGame {
 
     /**
      * This function define by input the level of diffyculty.
-     * 1 = easy, 2 = medium and for number value is hard
+     * 1 = easy, 2 = medium and for another number, his value is hard.
      */
     private void choiceDifficulty() {
         try {
@@ -74,12 +76,22 @@ public class GuessingGame {
         }
     }
 
+    /**
+     * This function define a random int number.
+     */
     private void generateRandomNum() {
         Random random = new Random();
         int numero = (random.nextInt(99) + 1);
         this.number = numero;
     }
 
+    /**
+     * This function check the result. In case you choice the rigth number, this
+     * will define the end message and the conditon to stop the game. In another
+     * case, it will define game messages!
+     * 
+     * @param number "This will be compare with the result."
+     */
     private void checkResult(int number) {
         String numberText = colorTextRed(Integer.toString(number, 10));
         if (number < this.number) {
@@ -89,10 +101,15 @@ public class GuessingGame {
         } else {
             this.isEnd = true;
             this.result = String.format(VERDE + "Parabéns! Você acertou o número em %s tentativas. \n",
-                    colorTextRed(Integer.toString((this.maxAttempts - this.attempts + 1), 10)));
+                    colorTextRed(Integer.toString((this.maxAttempts - this.attempts), 10)));
         }
     }
 
+    /**
+     * This function check if you can play. In case your attemps end, this will
+     * define the end message and the stop game condition.
+     * In another case, this will decrease the attempts number!
+     */
     private void checkAttempts() {
         if (this.attempts == 0) {
             this.result = String.format("O número de tentativas acabaram! o resultado era %d", this.number);
@@ -102,15 +119,18 @@ public class GuessingGame {
         }
     }
 
-    public void getResult() {
+    /**
+     * This function call the input and put in screen the result.
+     */
+    public void play() {
         try {
             System.out.print(VERMELHO + "Digite seu palpite: ");
             int number = this.input.nextInt();
-            checkResult(number);
             checkAttempts();
+            checkResult(number);
             System.out.println(this.result);
             if (!isEnd) {
-                getResult();
+                play();
             } else {
                 this.input.close();
             }
