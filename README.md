@@ -20,16 +20,27 @@ The `JAVA PROJECTS` view allows you to manage your dependencies. More details ca
 
 ![GuessingGame](/imagens/game.png)
 
-Ao executar o jogo vai sortear um número de 1 a 100 e você terá que adivinhar o número sorteado.
+## Iniciar do jogo
 
-Você pode escolher em 3 dificuldades diferentes. A primeira você terá 15 tentativas, na segunda 10 tentativas e na ultima 5 tentativas.
+Ao executar o jogo e selecionar entre umas das 3 dificuldades padrões, o jogo vai sortear um número de 1 a 100 e você terá que adivinhar o número sorteado.
 
-Você terá 10 tentativas e caso você esgote elas o jogo irá encerrar e vai receber a seguinte mensagem "O número de tentativas acabaram! o resultado era 'X'".
+## Dificuldade
 
-Em caso de digitar algo que não seja um número inteiro você vai receber a seguinte mensagem de erro "Digite um número!" e o jogo vai se encerrar!
+Você pode escolher em 4 dificuldades diferentes. 
 
-Em caso de digitar um número menor que o número sorteado, você receberá a seguinte mensagem "O número é menor do que 'numero digitado'".
+1. Você terá 15 tentativas.
+1. Você terá 10 tentativas. 
+1. Você terá 5 tentativas.
+1. Você pode personalizar a quantidade de tentativas e os limites para se sortear um número.
 
-Em caso de digitar um número maior que o número sorteado, você receberá a seguinte mensagem "O número é maior do que 'numero digitado'".
+## Regras
 
-Por ultimo você caso você acerte o número vai receber a seguinte mensagem "Parabéns! Você acertou o número em 'X' tentativas."
+* Você terá X tentativas e caso você esgote elas o jogo irá encerrar e vai receber a seguinte mensagem "O número de tentativas acabaram! o resultado era 'X'".
+
+* Em caso de digitar algo que não seja um número inteiro você vai receber a seguinte mensagem de erro "Digite um número!" e o jogo vai se encerrar!
+
+* Em caso de digitar um número menor que o número sorteado, você receberá a seguinte mensagem "O número é menor do que 'numero digitado'".
+
+* Em caso de digitar um número maior que o número sorteado, você receberá a seguinte mensagem "O número é maior do que 'numero digitado'".
+
+* Por ultimo você caso você acerte o número vai receber a seguinte mensagem "Parabéns! Você acertou o número em 'X' tentativas."
