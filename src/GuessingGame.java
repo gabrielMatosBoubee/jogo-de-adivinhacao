@@ -100,7 +100,7 @@ public class GuessingGame {
      */
     private void generateRandomNum() {
         Random random = new Random();
-        int numero = (random.nextInt(this.maxInt - this.minInt) + this.minInt);
+        int numero = (random.nextInt(this.maxInt - this.minInt + 1) + this.minInt);
         this.number = numero;
     }
 
