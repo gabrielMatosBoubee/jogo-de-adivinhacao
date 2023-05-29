@@ -9,6 +9,8 @@ public class GuessingGame {
     private String result;
     private Scanner input;
     private boolean isEnd;
+    private int minInt = 1;
+    private int maxInt = 100;
 
     private final String VERMELHO = "\u001B[31m";
     private final String VERDE = "\u001B[32m";
@@ -18,13 +20,15 @@ public class GuessingGame {
      */
     public GuessingGame() {
         this.input = new Scanner(System.in);
-        generateRandomNum();
         System.out.println(VERDE + "Bem-vindo ao jogo de adivinhação! \n");
-        String text = colorTextRed("1");
-        String anotherText = colorTextRed("100");
+
+        choiceDifficulty();
+        generateRandomNum();
+
+        String text = colorTextRed(Integer.toString(minInt));
+        String anotherText = colorTextRed(Integer.toString(maxInt));
         System.out.println(String.format("Tente adivinhar um número entre %s %s %s \n", text,
                 "e", anotherText));
-        choiceDifficulty();
     }
 
     private String colorTextRed(String text) {
@@ -33,12 +37,14 @@ public class GuessingGame {
 
     /**
      * This function define by input the level of diffyculty.
-     * 1 = easy, 2 = medium and for another number, his value is hard.
+     * 1 = easy, 2 = medium, 3 = hard and for another number, you can choice your
+     * challenge.
      */
     private void choiceDifficulty() {
         try {
 
-            System.out.println("Escolha sua dificuldade.");
+            System.out.println("Escolha sua dificuldade. \n");
+
             System.out.println(String.format(
                     "Caso deseje um desafio mais tranquilo, digite %s.",
                     colorTextRed("1")));
@@ -46,8 +52,11 @@ public class GuessingGame {
                     "Caso deseje um desafio moderado, digite %s.",
                     colorTextRed("2")));
             System.out.println(String.format(
-                    "Caso deseje um desafio desafior, digite %s. \n",
+                    "Caso deseje um desafio desafior, digite %s.",
                     colorTextRed("3")));
+            System.out.println(String.format(
+                    "Caso deseje um desafio personalizado, digite %s. \n",
+                    colorTextRed("4")));
 
             System.out.print("Escolha sua dificuldade: " + VERMELHO);
             int number = this.input.nextInt();
@@ -61,9 +70,19 @@ public class GuessingGame {
                     this.maxAttempts = 10;
                     this.attempts = 10;
                     break;
-                default:
+                case 3:
                     this.maxAttempts = 5;
                     this.attempts = 5;
+                    break;
+                default:
+                    System.out.print(VERDE + "\nQual o número minimo? " + VERMELHO);
+                    this.minInt = this.input.nextInt();
+                    System.out.print(VERDE + "Qual o número máximo? " + VERMELHO);
+                    this.maxInt = this.input.nextInt();
+                    System.out.print(VERDE + "\nQuantas tentativas você quer ter? " + VERMELHO);
+                    int attemps = this.input.nextInt();
+                    this.maxAttempts = attemps;
+                    this.attempts = attemps;
                     break;
             }
 
@@ -81,7 +100,7 @@ public class GuessingGame {
      */
     private void generateRandomNum() {
         Random random = new Random();
-        int numero = (random.nextInt(99) + 1);
+        int numero = (random.nextInt(this.maxInt - this.minInt) + this.minInt);
         this.number = numero;
     }
 
